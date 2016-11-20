@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="diagram-input.js"></script>
+    <!--<script type="text/javascript" src="test_assets/toolkit.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="testApp.js"></script>
+    <!--<link rel="stylesheet" href="test_assets/toolkit-light.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="test_assets/application.css">
+    <link rel="stylesheet" href="diagram-input.css">
+</head>
+<body ng-app="DiagramInputTest" style="padding: 20px !important">
+
+<div class="container-fluid" ng-controller="TestCtrl">
+
+    <h1>diagram-input test</h1>
+    <div class="row">
+        <div class="col-xs-12">
+            <diagram-input image="'test_assets/diagram.png'" max-width="800" fields="testFields">
+        </div>
+        <div class="col-xs-12">
+            <hr>
+            <div class="form-group" ng-repeat="x in testFields track by $index">
+                <label>field {{$index}}</label>
+                <div class="row">
+                    <div class="col-xs-3"><input ng-model="x.x1" placeholder="x1" type="text" class="form-control"></div>
+                    <div class="col-xs-3"><input ng-model="x.y1" placeholder="y1" type="text" class="form-control"></div>
+                    <div class="col-xs-3"><input ng-model="x.x2" placeholder="x2" type="text" class="form-control"></div>
+                    <div class="col-xs-3"><input ng-model="x.y2" placeholder="y2" type="text" class="form-control"></div>
+                </div>
+            </div>
+            <hr>
+            <pre>{{testFields | json}}</pre>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "diagram-input",
+  "homepage": "",
+  "authors": [
+    "Henry Schuh <henry.schuh@fusiform.co>"
+  ],
+  "description": "Angular directive for superimposed text inputs on a measurement diagram.",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-sanitize": "^1.5.8",
+    "jquery": "^3.1.1"
+  }
+}
