@@ -11,13 +11,10 @@ angular.module('diagramInput', []).directive('diagramInput', function() {
             scope.imageHeight = 0;
             scope.imageWidth = 0;
 
-            console.log(scope.maxWidth);
-
             scope.$watch(function() {
                 var measuredWidth = element[0].firstChild.clientWidth;
                 scope.imageWidth = measuredWidth > scope.maxWidth ? scope.maxWidth : measuredWidth;
                 scope.imageHeight = element[0].firstChild.clientHeight;
-
             });
 
             angular.element(window).on("resize", function() {
@@ -43,6 +40,16 @@ angular.module('diagramInput', []).directive('diagramInput', function() {
             imageWidth: '='
 		},
         link: function(scope, element, attr, controllers) {
+            var maxCharWidth = 8;
+
+            scope.fontScaleFactor = function(str) {
+                var scaling = 1;
+                while((str.length * maxCharWidth * scaling) > scope.imageWidth * (scope.position.x2 - scope.position.x1)) {
+                    scaling *= 0.9;
+                }
+                return scaling;
+            };
+
             scope.scaledHeight = function() {
                 return Math.round(scope.imageHeight * (scope.position.y2 - scope.position.y1));
             };

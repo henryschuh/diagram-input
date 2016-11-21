@@ -1,1 +1,1 @@
-<input class="diagram-input-field" style="top: {{(position.y1) * 100}}%; left: {{(position.x1) * 100}}%; width: {{scaledWidth()}}px; height: {{scaledHeight()}}px;">
+<input class="diagram-input-field" ng-model="model" style="top: {{(position.y1) * 100}}%; left: {{(position.x1) * 100}}%; width: {{scaledWidth()}}px; height: {{scaledHeight()}}px; font-size: {{fontScaleFactor(model)}}em;">
