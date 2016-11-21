@@ -1,10 +1,19 @@
+/*
+to do:
+- add disabled, required, ng-model-options
+- add error message based on focused input (use ng-focus, ng-blur)
+- integrate with ng-form-builder
+*/
+
 angular.module('diagramInput', []).directive('diagramInput', function() {
     return {
         restrict: 'E',
         templateUrl: 'templates/diagram.html',
         scope: {
+            schema: '=',
+            inputs: '=',
+            model: '=',
             image: '=',
-            fields: '=',
             maxWidth: '='
         },
         link: function(scope, element, attr) {
@@ -35,7 +44,9 @@ angular.module('diagramInput', []).directive('diagramInput', function() {
 		require:['^diagramInput'],
         templateUrl: 'templates/field.html',
 		scope:{
-            position: '=',
+            properties: '=',
+            formElement: '=',
+            model: '=',
             imageHeight: '=',
             imageWidth: '='
 		},
@@ -44,17 +55,16 @@ angular.module('diagramInput', []).directive('diagramInput', function() {
 
             scope.fontScaleFactor = function(str) {
                 var scaling = 1;
-                while((str.length * maxCharWidth * scaling) > scope.imageWidth * (scope.position.x2 - scope.position.x1)) {
+                while(str && ((str.length * maxCharWidth * scaling) > scope.imageWidth * (scope.formElement.x2 - scope.formElement.x1)))
                     scaling *= 0.9;
-                }
                 return scaling;
             };
 
             scope.scaledHeight = function() {
-                return Math.round(scope.imageHeight * (scope.position.y2 - scope.position.y1));
+                return Math.round(scope.imageHeight * (scope.formElement.y2 - scope.formElement.y1));
             };
             scope.scaledWidth = function() {
-                return Math.round(scope.imageWidth * (scope.position.x2 - scope.position.x1));
+                return Math.round(scope.imageWidth * (scope.formElement.x2 - scope.formElement.x1));
             };
         }
     };

@@ -9,14 +9,25 @@
     font-size: 14px;
 }
 
-.diagram-input-field {
+input.diagram-input-field {
     position: absolute;
-    background-color: rgba(22,196,214, 0.4);
+    background: none;
     text-align: center;
     outline: none;
     border: 0;
     margin: 0;
     padding: 0;
+    -webkit-appearance: none;
+}
+
+input.diagram-input-field::-webkit-inner-spin-button, 
+input.diagram-input-field::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input.diagram-input-field.ng-invalid.ng-dirty {
+    color: #E64759;
 }
 
 .diagram-input-image {

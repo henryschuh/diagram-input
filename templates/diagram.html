@@ -1,6 +1,6 @@
 <div class="diagram-input-container">
     <div class="diagram-input">
-        <diagram-input-field ng-repeat="f in fields" position="f" image-height="imageHeight" image-width="imageWidth"></diagram-input-field>
+        <diagram-input-field ng-repeat="i in inputs" form-element="i" properties="schema[i.key]" model="model" image-height="imageHeight" image-width="imageWidth"></diagram-input-field>
         <img class="diagram-input-image" ng-src="{{image}}" style="max-width: {{maxWidth}}px" alt="Measurement Diagram"/>
     </div>
 </div>
