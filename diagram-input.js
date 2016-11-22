@@ -1,10 +1,3 @@
-/*
-to do:
-- add disabled, required, ng-model-options
-- add error message based on focused input (use ng-focus, ng-blur)
-- integrate with ng-form-builder
-*/
-
 angular.module('diagramInput', []).directive('diagramInput', function() {
     return {
         restrict: 'E',
@@ -14,7 +7,9 @@ angular.module('diagramInput', []).directive('diagramInput', function() {
             inputs: '=',
             model: '=',
             image: '=',
-            maxWidth: '='
+            maxWidth: '=',
+            disabled: '=',
+            debounce: '='
         },
         link: function(scope, element, attr) {
             scope.imageHeight = 0;
@@ -48,7 +43,9 @@ angular.module('diagramInput', []).directive('diagramInput', function() {
             formElement: '=',
             model: '=',
             imageHeight: '=',
-            imageWidth: '='
+            imageWidth: '=',
+            disabled: '=',
+            debounce: '='
 		},
         link: function(scope, element, attr, controllers) {
             var maxCharWidth = 8;

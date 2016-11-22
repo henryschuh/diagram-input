@@ -1,6 +1,5 @@
 .diagram-input-container {
     display: flex;
-    background: #B1E7EC;
 }
 
 .diagram-input {
@@ -31,7 +30,6 @@ input.diagram-input-field.ng-invalid.ng-dirty {
 }
 
 .diagram-input-image {
-    background: white;
     width: 100%;
     height: auto;
 }
